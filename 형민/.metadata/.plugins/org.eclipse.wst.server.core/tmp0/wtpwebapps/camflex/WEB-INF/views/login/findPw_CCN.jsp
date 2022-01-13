@@ -21,11 +21,15 @@
 	<h2>입력한 이메일로 받은 인증번호를 입력하세요.</h2>
 	<form id="CCN" name="CCN" action="CCN.do${dice},${m_id}"
 		onsubmit="return check_CCN();" method="post">
-		<div>
-			인증번호 입력 : <input type="number" name="CCN" placeholder=" 인증번호를 입력하세요." />
+		<div style="width: 350px">
+			<input type="hidden" name="m_id" id="m_id"/>
+			<input type="number" name="CCN" style="width: 305px; height: 35px;"
+				placeholder=" 인증번호를 입력하세요." />
 		</div>
-		<div>
-			<input type="submit" value="인증번호 확인" />
+		<p></p>
+		<div style="width: 350px">
+			<input type="submit" style="width: 305px; height: 35px;"
+				value="인증번호 확인" onclick="location.href='/login/findPw_change'" />
 		</div>
 	</form>
 </body>

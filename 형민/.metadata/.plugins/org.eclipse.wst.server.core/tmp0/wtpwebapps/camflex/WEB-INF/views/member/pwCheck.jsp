@@ -27,23 +27,24 @@
 </script>
 </head>
 <body>
-<div align="center">
-	<h2>비밀번호 인증</h2>
-	<br>
-	<c:if test="${mvo == null }">
-		<form id="PwCheck" name="PwCheck" action="pwCheck" method="POST"
-			onsubmit="return password_check()">
+	<div align="center">
+		<h2>비밀번호 인증</h2>
+		<br>
+		<c:if test="${mvo == null }">
+			<form id="PwCheck" name="PwCheck" action="pwCheck" method="POST"
+				onsubmit="return password_check()">
 
-			<div align="center" class="table">
-				<label id="pwCheck_info">비밀번호</label> <input type="password"
-					id="m_pw" name="m_pw" placeholder="비밀번호를 입력해주세요.">
-			</div>
-			<br>
-			<div>
-				<input type="submit" value="인증하기" class="btn btn-success"/>
-			</div>
-		</form>
-	</c:if>
-</div>
+				<div align="center" class="table" style="width: 350px">
+					<input type="password" id="m_pw" name="m_pw"
+						style="width: 305px; height: 35px;" placeholder="비밀번호를 입력해주세요.">
+				</div>
+				<br>
+				<div style="width: 350px">
+					<input type="submit" value="인증하기"
+						style="width: 305px; height: 35px;" class="btn btn-success" />
+				</div>
+			</form>
+		</c:if>
+	</div>
 </body>
 </html>

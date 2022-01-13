@@ -98,15 +98,13 @@ public class LoginController {
 	}
 
 	/* 아이디 찾기 */
-	@RequestMapping(value = "findId", method = RequestMethod.POST)
+	@RequestMapping(value = "/findId", method = RequestMethod.POST)
 	public String findId(MemberVO vo, Model model, HttpServletResponse response, RedirectAttributes rttr)
 			throws Exception {
 		log.info("findId post");
 		MemberVO mvo = loginService.findId(vo);
 
 		if (mvo == null) {
-			log.info("find ID 실패");
-
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out_equals = response.getWriter();
 			out_equals.println("<script>alert('입력하신 이름, 전화번호가 일치하지 않습니다. 다시 입력해주세요.');</script>");
@@ -116,24 +114,23 @@ public class LoginController {
 			rttr.addFlashAttribute("msg", false);
 			return "login/findId";
 		} else {
-			log.info("find ID 성공");
 			model.addAttribute("mvo", mvo);
 		}
 		return "login/findId";
 	}
 
 	/* 비밀번호 찾기 페이지 */
-	@RequestMapping(value = "findPw", method = RequestMethod.GET)
+	/*@RequestMapping(value = "findPw", method = RequestMethod.GET)
 	public String findPwForm() {
 		log.info("비밀번호 찾기 페이지 호출 성공");
 		return "login/findPw"; // views/login/findPw.jsp로 포워드
-	}
+	}*/
 
 	/* 비밀번호 찾기 인증번호 이메일 발송 기능 */
 	/* 이름과 아이디, 전화번호로 인증받는다. */
-	@RequestMapping(value = "/findPw_check", method = RequestMethod.POST)
-	public ModelAndView findPw(Model model, HttpServletResponse response, HttpServletRequest request, MemberVO vo,
-			RedirectAttributes rttr) throws Exception {
+	/*@RequestMapping(value = "/findPw_check", method = RequestMethod.POST)
+	public ModelAndView findPw(Model model, HttpServletResponse response, HttpServletRequest request, MemberVO vo)
+			throws Exception {
 
 		String m_id = (String) request.getParameter("m_id");
 		String m_name = (String) request.getParameter("m_name");
@@ -205,11 +202,11 @@ public class LoginController {
 
 		return mav;
 
-	}
+	}*/
 
 	/* 인증번호 받고 인증하는 페이지 */
 	// Certification Number = CCN 인증번호
-	@RequestMapping(value = "/CCN.do{dice},{m_id}", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/CCN.do{dice},{m_id}", method = RequestMethod.POST)
 	public ModelAndView CCN(String CCN, @PathVariable(value = "dice") String dice,
 			@PathVariable(value = "m_id") String m_id, HttpServletResponse response) throws IOException {
 
@@ -218,10 +215,6 @@ public class LoginController {
 		mav.addObject("m_id", m_id);
 		mav.addObject("dice", dice);
 		mav.setViewName("/login/findPw_change");
-
-		log.info("찾을려는 ID : " + m_id);
-		log.info("입력한 CCN : " + CCN);
-		log.info("마지막 dice : " + dice);
 
 		if (CCN.equals(dice)) {
 			// 인증번호 일치 시
@@ -248,36 +241,36 @@ public class LoginController {
 			return mav2;
 		}
 		return mav;
-	}
+	}*/
 
-	// 비밀번호 변경
-	@RequestMapping(value = "change_pw", method = RequestMethod.POST)
-	public String change_pw(MemberVO vo, String m_id, HttpServletResponse response, RedirectAttributes rttr)
+	/* 비밀번호 찾기 페이지 */
+	/*@RequestMapping(value = "findPw_change", method = RequestMethod.GET)
+	public String findPw_change(HttpServletResponse response, MemberVO vo) {
+		log.info("비밀번호 변경 페이지 호출 성공");
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("m_id", m_id);
+		log.info("변경하는 ID1 : " + m_id);
+
+		return "login/findPw_change";
+	}*/
+
+	// 비밀번호 변경 처리
+	/*@RequestMapping(value = "change_pw", method = RequestMethod.POST)
+	public String change_pw(MemberVO vo, String m_id, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		log.info("비밀번호 변경 요청");
+		log.info("변경하는 id2 : " + m_id);
 		ModelAndView mav = new ModelAndView();
-		
+
 		mav.addObject("m_id", m_id);
-		
-		log.info("변경하는 id : " + m_id);
 
-		/* 인코딩 후 비밀번호 */
-		/*String m_pw = "";// 인코딩 전 비밀번호
-		String encodePw = ""; // 변경된 비밀번호 다시 암호화
-
-		m_pw = vo.getM_pw();
-		encodePw = pwEncoder.encode(m_pw); // 비밀번호 인코딩
-		vo.setM_pw(encodePw);*/
-
-		/* 암호화 된 비밀번호 변경 */
-		/*loginService.change_pw(vo);*/
-		session.invalidate();
-		rttr.addFlashAttribute("result", "updateOK");
+		loginService.change_pw(vo);
 
 		log.info("비밀번호 변경 완료");
-		return "login/pw_result";
+		return "redirect:/";
 
-	}
+	}*/
 
 	// 로그아웃
 	@RequestMapping("/logout")

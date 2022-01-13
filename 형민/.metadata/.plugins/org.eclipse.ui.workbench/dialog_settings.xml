@@ -9,4 +9,6 @@
 			<item value="org.eclipse.wst.XMLCategory"/>
 		</list>
 	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+	</section>
 </section>

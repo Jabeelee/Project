@@ -45,21 +45,24 @@
 </script>
 <body>
 	<h2>비밀번호 찾기</h2>
-	<form name="findPw_check" id="findPw_check" action="findPw_check" method="POST" onsubmit="return find_password()">
-		<div>
-			<label id="find_pw_info">이름</label> <input type="text" id="m_name"
-				name="m_name" placeholder="이름">
+	<form name="findPw_check" id="findPw_check" action="findPw_check"
+		method="POST" onsubmit="return find_password()">
+		<div style="width: 350px">
+			<input type="text" id="m_name" name="m_name"
+				style="width: 305px; height: 35px;" placeholder="이름">
 		</div>
 		<p></p>
-		<div>
-			<label id="find_pw_info">아이디</label> <input type="text" id="m_id"
-				name="m_id" placeholder="아이디">
+		<div style="width: 350px">
+			<input type="text" id="m_id" name="m_id"
+				style="width: 305px; height: 35px;" placeholder="아이디">
 		</div>
 		<p></p>
 
-		<div>
-			<input type="submit" value="비밀번호 찾기" />
+		<div style="width: 350px">
+			<input type="submit" value="비밀번호 찾기"
+				style="width: 305px; height: 35px;" />
 		</div>
 	</form>
 </body>
+
 </html>

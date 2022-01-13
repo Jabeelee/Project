@@ -28,10 +28,10 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	// 비밀번호 찾기 (이름,아이디)인증
-	@Override
+	/*@Override
 	public MemberVO findPw_check(MemberVO vo) throws Exception {
 		return loginDAO.findPw_check(vo);
-	}
+	}*/
 
 	// 인증 처리 후 비밀번호 변경
 	@Override

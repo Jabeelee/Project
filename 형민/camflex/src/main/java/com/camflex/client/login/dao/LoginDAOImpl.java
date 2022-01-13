@@ -23,10 +23,10 @@ public class LoginDAOImpl implements LoginDAO {
 	}
 
 	// 비밀번호 찾기 (이름,아이디)인증
-	@Override
+	/*@Override
 	public MemberVO findPw_check(MemberVO vo) throws Exception {
 		return sqlSession.selectOne(namespace + ".findPw_check", vo);
-	}
+	}*/
 
 	// 아이디 찾기
 	@Override

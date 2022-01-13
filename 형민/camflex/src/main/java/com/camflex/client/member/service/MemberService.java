@@ -13,9 +13,8 @@ public interface MemberService {
 
 	// 아이디 중복 체크
 	public int idChk(MemberVO vo) throws Exception;
-	
-	//public int idChk(String m_id) throws Exception;
-	
+
+	// public int idChk(String m_id) throws Exception;
 	// 내 정보 보기, 정보 수정 폼
 	public MemberVO readMember(String m_id) throws Exception;
 

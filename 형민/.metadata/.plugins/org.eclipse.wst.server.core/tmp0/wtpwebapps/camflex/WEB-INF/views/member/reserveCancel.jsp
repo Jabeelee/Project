@@ -45,46 +45,50 @@
 			id="total_price" name="total_price" value="${total_price} ">
 
 
+		<div align="center">
+			<h3>예약 취소</h3>
+			<table class="table">
 
-		<table class="table">
-			<tr>
-				<td align="center">결제금액</td>
-				<td align="center"><input id="r_price" name="r_price" value="${r_price}"
-					readonly="true" /></td>
-			</tr>
-			<tr>
-				<td align="center">취소수수료</td>
-				<td align="center"><input id="price_fee" name="price_fee" value="${p_fee}"
-					readonly="true" /></td>
-			</tr>
-			<tr>
-				<td align="center">환불금액</td>
-				<td align="center"><input id="total_price" name="total_price"
-					value="${total_price}" readonly="true" /></td>
-			</tr>
+				<tr>
+					<td align="center">결제금액</td>
+					<td align="center"><input id="r_price" name="r_price"
+						value="${r_price}" readonly="true" /></td>
+				</tr>
+				<tr>
+					<td align="center">취소수수료</td>
+					<td align="center"><input id="price_fee" name="price_fee"
+						value="${p_fee}" readonly="true" /></td>
+				</tr>
+				<tr>
+					<td align="center">환불금액</td>
+					<td align="center"><input id="total_price" name="total_price"
+						value="${total_price}" readonly="true" /></td>
+				</tr>
 
-			<tr>
-				<td align="center">취소 사유</td>
-				<td align="center"><select id="r_cancel" name="r_cancel">
-						<option value="개인사유">개인사유</option>
-						<option value="예약날짜변경">예약날짜변경</option>
-						<option value="천재지변">천재지변</option>
-						<option value="기타">기타</option>
-				</select></td>
+				<tr>
+					<td align="center">취소 사유</td>
+					<td align="center"><select id="r_cancel" name="r_cancel">
+							<option value="개인사유">개인사유</option>
+							<option value="예약날짜변경">예약날짜변경</option>
+							<option value="천재지변">천재지변</option>
+							<option value="기타">기타</option>
+					</select></td>
 
-			</tr>
+				</tr>
 
-			<tr>
-				<!-- 취소 환불 규정 안내문 -->
-			</tr>
+				<tr>
+					<!-- 취소 환불 규정 안내문 -->
+				</tr>
 
-			<tr>
-				<td colspan="2"  align="center"><input type="button" id="btnCancel" name="btnCancel"
-					value="예약 취소하기" class="btn btn-success"/></td>
-			</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="button"
+						id="btnCancel" name="btnCancel" value="예약 취소하기"
+						class="btn btn-success" /></td>
+				</tr>
 
 
-		</table>
+			</table>
+		</div>
 	</form>
 </body>
 </html>

@@ -49,36 +49,29 @@ public class MemberController {
 	}
 
 	/* 아이디 중복 체크 */
-	@ResponseBody
 	@RequestMapping(value = "/idChk", method = RequestMethod.POST)
 	public int idChk(MemberVO vo) throws Exception {
 		int result = memberService.idChk(vo);
 		return result;
 	}
 
-	/* 회원가입 처리 (BCryptPasswordEncoder 사용) */
+	/* 회원가입 처리 */
 	@RequestMapping(value = "/insertMember", method = RequestMethod.POST)
-	public String insertMember(@ModelAttribute MemberVO vo, Model model) throws Exception {
-		/*
-		 * String m_pw = ""; // 인코딩 전 비밀번호 String encodePw = ""; // 인코딩 후 비밀번호
-		 */
-		/*
-		 * m_pw = mvo.getM_pw(); // 비밀번호 데이터 얻음 encodePw = pwEncoder.encode(m_pw); //
-		 * 비밀번호 인코딩 mvo.setM_pw(encodePw); // 인코딩된 비밀번호 member객체에 다시 저장
-		 */
-		int result = memberService.idChk(vo);
-		try {
-			if (result == 1) {
-				return "/member/insertMember";
-			} else if (result == 0) {
-				memberService.insertMember(vo);
-			}
-		} catch (Exception e) {
-			throw new RuntimeException();
-		}
-		return "redirect:/";
+	public String insertMember(@ModelAttribute MemberVO mvo, Model model) throws Exception {
 
+		memberService.insertMember(mvo);
+
+		return "redirect:/";
 	}
+
+	/*
+	 * (BCryptPasswordEncoder 사용) String m_pw = ""; // 인코딩 전 비밀번호 String encodePw =
+	 * ""; // 인코딩 후 비밀번호
+	 */
+	/*
+	 * m_pw = mvo.getM_pw(); // 비밀번호 데이터 얻음 encodePw = pwEncoder.encode(m_pw); //
+	 * 비밀번호 인코딩 mvo.setM_pw(encodePw); // 인코딩된 비밀번호 member객체에 다시 저장
+	 */
 
 	/* 내 정보 조회 */
 	@RequestMapping(value = "/memberDate", method = RequestMethod.GET)
@@ -168,7 +161,7 @@ public class MemberController {
 
 	}
 
-	/* 내 예약 정보 조회 페이지 */
+	/* 내 실시간 예약 정보 리스트 조회 페이지 */
 	@RequestMapping(value = "/reserveList", method = RequestMethod.GET)
 	public String ReserveList(@ModelAttribute MemberVO vo, @ModelAttribute PageRequest pageRequest,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session, Model model)
@@ -258,15 +251,8 @@ public class MemberController {
 		m_id = (String) session.getAttribute("m_id");
 		model.addAttribute("id", m_id);
 
-		int result = 0;
-		result = memberService.Cancel(vo);
+		memberService.Cancel(vo);
 
-		if (result == 1) {
-			log.info("예약 취소 완료");
-		} else {
-			log.info("예약 취소 실패");
-			return "member/reserveCancel";
-		}
 		return "redirect:/member/reserveList";
 
 	}

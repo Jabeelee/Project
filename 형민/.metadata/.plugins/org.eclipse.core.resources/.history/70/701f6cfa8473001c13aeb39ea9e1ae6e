@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인증번호 입력 페이지</title>
+<script type="text/javascript">
+	function check_CCN() {
+		var CCN = document.getElementById("ccn"); //인증번호
+
+		if (CCN.value == '') {
+			alert("인증번호를 입력해주세요.");
+			return false;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<h2>입력한 이메일로 받은 인증번호를 입력하세요.</h2>
+	<form id="CCN" name="CCN" action="CCN.do${dice},${m_id}"
+		onsubmit="return check_CCN();" method="post">
+		<div style="width: 350px">
+			<input type="number" name="CCN" style="width: 305px; height: 35px;"
+				placeholder=" 인증번호를 입력하세요." />
+		</div>
+		<p></p>
+		<div style="width: 350px">
+			<input type="submit" style="width: 305px; height: 35px;"
+				value="인증번호 확인" onclick="location.href='/login/findPw_change'" />
+		</div>
+	</form>
+</body>
+</html>

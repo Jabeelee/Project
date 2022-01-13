@@ -10,23 +10,23 @@
 <body>
 	<input type="hidden" id="m_id" name="m_id" value="${id}">
 	<div align="center">
-	<h2>${memberVO.m_id}님의 정보</h2>
+	<h2>${memberVO.m_name} 님의 정보</h2>
 	<table class="table">
 			<tr>
-				<td><div>아이디</div></td>
-				<td><div><input id="m_id" name="m_id" value="${memberVO.m_id}" readonly="true"/></div></td>
+				<td>아이디</td>
+				<td><input id="m_id" name="m_id" value="${memberVO.m_id}" readonly="true"/></td>
 			</tr>
 			<!-- <tr>
 				<td><div>비밀번호</div></td>
 				<td><div><input id="m_id" name="m_pw"  readonly="true" /></div></td>
 			</tr>-->
 			<tr>
-				<td><div>이름</div></td>
-				<td><div><input id="m_name" name="m_pw" value="${memberVO.m_name}" readonly="true"/></div></td>
+				<td>이름</td>
+				<td><input id="m_name" name="m_pw" value="${memberVO.m_name}" readonly="true"/></td>
 			</tr>
 			<tr>
-				<td><div>핸드폰 번호</div></td>
-				<td><div><input id="m_phone" name="m_phone" value="${memberVO.m_phone}" readonly="true"/></div></td>
+				<td>핸드폰 번호</td>
+				<td><input id="m_phone" name="m_phone" value="${memberVO.m_phone}" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td>생년월일</td>

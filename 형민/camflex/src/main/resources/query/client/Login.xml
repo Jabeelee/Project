@@ -21,20 +21,21 @@
 	</select>
 
 	<!-- 비밀번호 찾기 -->
-	<select id="findPw_check"
+	<!-- <select id="findPw_check"
 		resultType="com.camflex.client.member.vo.MemberVO">
 		select *
 		from member_tbl
 		Where m_name=#{m_name} and m_id
 		=#{m_id}
-	</select>
-	
+	</select> -->
+
 	<!-- 비밀번호 변경 -->
-	<update id="change_pw" parameterType="hashMap">
+	<update id="change_pw">
 		update member_tbl
 		set
 		m_pw=#{m_pw}
-		where m_id=#{m_id}
+		where
+		m_id=#{m_id}
 	</update>
 
 
